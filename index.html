@@ -1,90 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
 
-    <!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="./assests/style.css" />
-        <title>weather</title>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- <link rel="stylesheet" href="/assests/style.css"> -->
-        <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
-    </head>
-    
-    <body>
-        <div class="jumbotron jumbotron-fluid bg-primary">
-            <div class="container">
-                <h1 class="display-4">Weather Dashboard</h1>
-                <p class="lead"></p>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./assests/style.css" />
+    <title>weather</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="/assests/style.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid bg-primary">
+        <div class="container">
+            <h1 class="display-4 text-light">Weather Dashboard</h1>
+            <p class="lead"></p>
         </div>
-        <main class="flex-row space-around">
-            <section class="cityBox flex-column itemscenter">
-    
-                <div class="align-content-left width">
-                    <H1 id="searchheading"> Search for a City</H1>
+    </div>
+    <main class="flex-row space-around">
+        <section class="cityBox flex-column itemscenter">
+
+            <div class="align-content-left width">
+                <H1 id="searchheading"> Search for a City</H1>
+            </div>
+
+            <form id="search-city" class="spread flex-column itemscenter">
+                <div class="form-group input">
+                    <input type="text" class="formDesign" class="form-control" id="search-entry"
+                        placeholder="Enter city here">
+                    <button class="btn btn-primary" class="search-box" id="searchbtn">
+                        <i class="fa fa-search"></i>
+                    </button>
                 </div>
-    
-                <form id="search-city" class="spread flex-column itemscenter">
-                    <div class="form-group input">
-                        <input type="text" class="formDesign" class="form-control" id="search-entry"
-                            placeholder="Enter city here">
-                        <button class="btn btn-primary" class="search-box" id="searchbtn">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </form>
-    
-    
-                <hr id="line" > 
-    
-    
-    
-                <div id="container" class="spread flex-column itemscenter">
-                </div>
-    
-            </section>
-    
-            <section class="cityDetails">
-                <div class="row">
-                    <div class="col-12 bg-light">
-                        <div class=" border rounded my-3 px-3 py-3 infoLayout1 flex-column space-evenly">
-                            <h2>City Information <small class="text-muted" ></small></h2>
-                            <div>
-                                <h1 class=" marginLeft text-success" id="City-name"></h1>
-                            </div>
-    
-                            <div id="cityInfo">
-                                <p class="mb-0 m-2">Temperature: <span id="temp"></span></p>
-                                <p class="mb-0">Humidity: <span id="humidity"></span></p>
-                                <p class="mb-0">Wind: <span id="wind"></span></p>
-                                <p class="mb-0">UV index: <span id="UvIndex"></span></p>
-                            </div>
+            </form>
+
+
+            <hr class="text-light" id="line">
+
+
+
+            <div id="container" class="spread flex-column itemscenter">
+            </div>
+
+        </section>
+
+        <section class="cityDetails">
+            <div class="row">
+                <div class="col-12 bg-light">
+                    <div class=" border rounded my-3 px-3 py-3 infoLayout1 flex-column space-evenly">
+                        <h2>City Information <small class="text-muted"></small></h2>
+                        <div>
+                            <h1 class=" marginLeft text-success" id="City-name"></h1>
+                        </div>
+
+                        <div id="cityInfo">
+                            <p class="mb-0 m-2">Temperature: <span id="temp"></span></p>
+                            <p class="mb-0">Humidity: <span id="humidity"></span></p>
+                            <p class="mb-0">Wind: <span id="wind"></span></p>
+                            <p class="mb-0">UV index: <span id="UvIndex"></span></p>
                         </div>
                     </div>
-                    <section>
-                        <section >
-                            <h1> 5-day Forecast:</h1>
-                            <div id="forecast" class="flex-row space-between  bg-primary  ">
-                                <!-- <div class="weekforecast"> 
-                                     <h3>  </h3>
-                                         <p> Temp: <span> </span></p> 
-                                                             <p> Wind: <span> </span></p>  
-                                                     <p> Humidity: <span> </span></p> 
-                                                    </div> -->
-                            </div>
-                        </section>
-    
-    
-        </main>
-    
-    
-        <script src="./assests/script.js"> </script>
-    </body>
-    
-    </html>
+                </div>
+                <section class="col-12">
+                    <h1> 5-day Forecast:</h1>
+                    <div id="forecast" class="d-flex space-between">
+                    </div>
+                </section>
+
+
+    </main>
+
+
+    <script src="./assests/script.js"> </script>
+</body>
+
+</html>

@@ -30,12 +30,15 @@ h3 {
     margin-right: 0;
 }   
 
+.weekforecast  {
+    margin: 5px;
 
+}
 
 .layout { 
     width: 90%; 
     background-color: var(--secondary); 
-    color: black; 
+    color: white; 
     border-radius: 4px;  
     padding: 8px; 
     margin: 8px; 
