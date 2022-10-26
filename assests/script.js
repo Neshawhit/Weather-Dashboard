@@ -4,6 +4,10 @@ var forecast = document.querySelector("#forecast") ;
 var search = document.querySelector("#search-city") 
 var searchHistory = document.querySelector("#container") ; 
 var searchbtn = document.querySelector("#searchbtn") 
+var temp = document.querySelector("#temp") ;
+var wind = document.querySelector("#wind") ;
+var humidity = document.querySelector("#humidity") ;
+var UVIndex = document.querySelector("#UvIndex") ; 
 var cities = [] 
 
 var loadCities = function() {
@@ -16,7 +20,7 @@ var loadCities = function() {
   
   for (var i=0; i < citiesLoaded.length; i++) {
       makebtn(citiesLoaded[i])
-      cities.push(citiesLoaded[i])  // whats the point of this line??
+      cities.push(citiesLoaded[i])  
   }
 }
 
@@ -24,16 +28,12 @@ var saveCities = function() {
   localStorage.setItem("cities", JSON.stringify(cities));
 } 
 
-
 var searchfunction = function(event) {  
     
   event.preventDefault();  
   
-
   var city = searchEntry.value.trim(); 
-
  
-  
   if (city) { 
     
     getcityInfo(city);
@@ -44,7 +44,7 @@ var searchfunction = function(event) {
     searchEntry.value = ""; 
     
   } else {
-    alert("Please enter a real city");
+    alert("Enter an actual city");
   }
 }; 
 
@@ -52,13 +52,13 @@ var getcityInfo = function (city) {
   console.log(city);
     var apiURL =  "https://api.openweathermap.org/data/2.5/weather?q=" + city + ",USA&APPID=cfe0b2658aec5af16bf8115cfd986eca";
 
- // make a get request to url
+ // request to url
  fetch(apiURL)
  .then(function(response) {
-   // request was successful
+
    if (response.ok) {
      response.json().then(function(data) {
-      dashboard(data, city); // why does this break everything?? 
+      dashboard(data, city); 
        
      }); 
      
@@ -76,22 +76,13 @@ var getcityInfo = function (city) {
    }
  })
  .catch(function(error) {
-   alert("Unable to connect to GitHub");
+  //  alert("Unable to connect to GitHub");
  });
 }; 
 
-
-
-
 var dashboard = function (data, city) { 
    console.log(city)  
-  
 
-var temp = document.querySelector("#temp") ;
-var wind = document.querySelector("#wind") ;
-var humidity = document.querySelector("#humidity") ;
-
-  
 cityInfo.innerHTML = city; 
 temp.innerHTML = (((data.main.temp) - 273.15) * 9/5 + 32).toFixed(1) ;  
 
@@ -101,72 +92,58 @@ humidity.innerHTML = data.main.humidity;
 let lon = data.coord.lon ;
 let lat = data.coord.lat ;
 
-
   fivedayforecast (lat, lon)
 } 
 
 var fivedayforecast = function (lat, lon) { 
-    
 
     var apiURL =  "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,minutely&appid=cfe0b2658aec5af16bf8115cfd986eca";
 
-// make a get request to url
 fetch(apiURL)
 .then(function(response) {
-  // request was successful
+
   if (response.ok) {
     
     response.json().then(function(data) {
       
-      
-      var UVIndex = document.querySelector("#Uv-index") ; 
       UVIndex.innerHTML = data.current.uvi;  
-      UVIndex.classList.add("UVindexgreen")
+      UVIndex.classList.add("UV-green")
       
       if (data.current.uvi > 2) { 
-          UVIndex.classList.add("UVindexyellow")
+          UVIndex.classList.add("UV-yellow")
       } 
 
       else if (data.current.uvi > 7) { 
-        UVIndex.classList.add("UVindexred")
+        UVIndex.classList.add("UV-red")
 
       } 
 
-      finalforecast(data); 
+      forecastresults(data); 
     }); 
-
-    
 
   } else {
     alert("Error: " + response.statusText);
   }
 })
 .catch(function(error) {
-  alert("Unable to connect to GitHub");
+  // alert("Unable to connect to GitHub");
 });
 }; 
-
-
-var finalforecast = function (data) {
+var forecastresults = function (data) {
   console.log(data) 
 
-
-
  for (var i = 1; i < 6; i++) { 
-     var daytoday = data.daytoday[i]
+     var daytoday = data.daily[i]
       
 
      var divtwo = document.createElement("div"); 
      divtwo.classList = ""; 
 
      var title = document.createElement("h3"); 
-     
-
      var mili = daytoday.dt * 1000; 
      var robodate = new Date(mili); 
      var humandate = robodate.toLocaleString("en-US", {weekday: "long"})
      
-    
      title.innerHTML = humandate;
      divtwo.appendChild(title); 
 
@@ -185,10 +162,7 @@ var finalforecast = function (data) {
 
      forecast.appendChild(divtwo)
  }  
-
 } 
-
-
 
 var makebtn = function (city) { 
   
@@ -197,7 +171,7 @@ var makebtn = function (city) {
   line1.classList.remove("hide"); 
 
   var button = document.createElement("button") 
-   button.classList.add("UI"); 
+   button.classList.add("layout"); 
    button.textContent = city; 
    
  
@@ -208,9 +182,6 @@ var makebtn = function (city) {
    });
   
 }
-
- 
-
 loadCities()
 
 searchbtn.addEventListener("click", searchfunction);

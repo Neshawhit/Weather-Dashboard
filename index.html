@@ -17,61 +17,61 @@
     </head>
     
     <body>
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid bg-primary">
             <div class="container">
                 <h1 class="display-4">Weather Dashboard</h1>
-                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                <p class="lead"></p>
             </div>
         </div>
-        <main class="flex-row justify-space-around">
-            <section class="col4 flex-column height itemscenter">
+        <main class="flex-row space-around">
+            <section class="cityBox flex-column itemscenter">
     
                 <div class="align-content-left width">
                     <H1 id="searchheading"> Search for a City</H1>
                 </div>
     
-                <form id="search-city" class="full flex-column itemscenter">
+                <form id="search-city" class="spread flex-column itemscenter">
                     <div class="form-group input">
-                        <input type="text" class="UIform" class="form-control" id="search-entry"
+                        <input type="text" class="formDesign" class="form-control" id="search-entry"
                             placeholder="Enter city here">
-                        <button class="btn btn-info" class="search" id="searchbtn">
+                        <button class="btn btn-primary" class="search-box" id="searchbtn">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
                 </form>
     
     
-                <hr id="line" class="width hide"> <!-- empty line -->
+                <hr id="line" > 
     
     
     
-                <div id="container" class="full flex-column itemscenter">
+                <div id="container" class="spread flex-column itemscenter">
                 </div>
     
             </section>
     
-            <section class="col8">
+            <section class="cityDetails">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="weather border rounded my-3 px-3 py-3" height1 flex-column justify-space-evenly">
-                            <h2>City Information <small class="text-muted" id="current-date"></small></h2>
+                    <div class="col-12 bg-light">
+                        <div class=" border rounded my-3 px-3 py-3 infoLayout1 flex-column space-evenly">
+                            <h2>City Information <small class="text-muted" ></small></h2>
                             <div>
-                                <h1 class="margin marginleft" id="City-name"></h1>
+                                <h1 class=" marginLeft text-success" id="City-name"></h1>
                             </div>
     
                             <div id="cityInfo">
-                                <p class="mb-0">Temperature: <span id="temp"></span></p>
+                                <p class="mb-0 m-2">Temperature: <span id="temp"></span></p>
                                 <p class="mb-0">Humidity: <span id="humidity"></span></p>
                                 <p class="mb-0">Wind: <span id="wind"></span></p>
-                                <p class="mb-0">UV index: <span id="MainUV"></span></p>
+                                <p class="mb-0">UV index: <span id="UvIndex"></span></p>
                             </div>
                         </div>
                     </div>
                     <section>
                         <section >
                             <h1> 5-day Forecast:</h1>
-                            <div id="forecast" class="flex-row justify-space-between m-5">
-                                <!-- <div class="height2"> 
+                            <div id="forecast" class="flex-row space-between  bg-primary  ">
+                                <!-- <div class="weekforecast"> 
                                      <h3>  </h3>
                                          <p> Temp: <span> </span></p> 
                                                              <p> Wind: <span> </span></p>  

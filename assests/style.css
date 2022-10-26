@@ -1,64 +1,25 @@
-/* header{
-    background-color: blue ;
-    color: White;
-}
-
-.jumbotron-fluid{
-    background-color: lightblue;
-} */
-/* 
-html, body, .container-fluid, .content-row {
-    height: 100%;
-}
-
-.hide {
-    display: none;
-}
-
-.city-btn:hover {
-    background-color: #f6f5f5;
-    cursor: pointer;
-}
-
-.card {
-    background-color: #cce5ff;
-} */
-
-/* global */
 
 * { 
     margin:0; 
     padding:0
 } 
 
-:root { 
-    --primary: #374659; 
-    --secondary: #B8B8B7; 
-    --tertiary: #6CA0E3; 
-    --blue1: #466ABA; 
-    --blue2: #251761; 
-} 
-
-/* UI */
 
 
 #cityInfo p { 
     margin: 20px 20px 0px 15px
 } 
 
-.height2 p { 
-    margin: 10px 10px 0px 0px 
-}
+
 h1 { 
-    font-weight: bold; 
-    
+    font-weight: bold;  
 } 
 
 h3 { 
     font-weight: bold
 }
 
-.search { 
+.search-box { 
     width: 90%; 
     background-color: var(--tertiary); 
     color: white; 
@@ -71,7 +32,7 @@ h3 {
 
 
 
-.UI { 
+.layout { 
     width: 90%; 
     background-color: var(--secondary); 
     color: black; 
@@ -82,7 +43,7 @@ h3 {
     margin-right: 0;
 }  
 
-.UIform { 
+.formDesign { 
     width: 83.5%; 
     background-color: white; 
     color: black; 
@@ -94,14 +55,6 @@ h3 {
     font-size: large;
 } 
 
-.weather { 
-    border: 2px; 
-    margin-bottom: 25px; 
-    border-style: solid; 
-    border-width: 1px;
-}
-
-/* flex */
 
 .flex-column {
     display: flex;
@@ -115,121 +68,94 @@ h3 {
   } 
 
 
-  /* spacing */ 
- 
-  .align-content-left { 
-    justify-content: left;
-  } 
-
-  .align-content-space-around { 
-      align-content: space-around;
-  } 
 
   .itemscenter { 
     align-items: center;
 } 
 
  
-.justify-space-around {
+.space-around {
     justify-content: space-around;
   } 
 
-  .justify-space-between {
+  .space-between {
     justify-content: space-between;
   }   
+  
+    .justify-left {
+        justify-content: left;
+    }
 
-  .justify-space-evenly { 
+  .space-evenly { 
       justify-content: space-evenly;
   } 
 
-  .justify-left {
-      justify-content: left;
-  }
 
-  .margin { 
-    margin: 16px 0;
-  } 
 
-  .marginleft { 
+.marginLeft { 
+      margin: 16px 0;
       margin-left: 15px; 
       margin-top: 0;
   }
   
-  .UVindexgreen { 
+  .UV-green { 
       background-color: green; 
       border-radius: 8px;  
       color: white; 
       padding: 4px 8px 4px 8px;
   } 
 
-  .UVindexyellow { 
+  .UV-yellow{ 
     background-color: yellow; 
     border-radius: 8px;  
     color: black; 
     padding: 4px 8px 4px 8px;
 } 
 
-.UVindexred { 
+.UV-red { 
     background-color: red; 
     border-radius: 8px;  
     color: white; 
     padding: 4px 8px 4px 8px;
 }
 
- 
- /* columns for grid */ 
 
-.col4 {
-    flex: 0 0 calc(100% * 4 / 12 - 3%);
-  } 
-
-
-.col8 {
+.cityDetails {
     flex: 0 0 calc(100% * 8 / 12 - 3%);
   } 
 
 
-
-
-/* width and height */ 
-
-.height { 
+.weekforecast { 
     
+    height: 120px; 
+    padding: 8px; 
+    color: white; 
+    padding-right: 24px; 
+    width: 100px;
+} 
+
+.cityBox {
+    flex: 0 0 calc(100% * 4 / 12 - 3%);
     margin-top: 25px; 
     height: auto; 
-    padding-bottom: 20px; 
-}  
+    padding-bottom: 20px;
+  } 
 
-.height1 { 
+.infoLayout1 { 
     
     margin-top: 25px; 
     height: 200px; 
     padding-bottom: 20px; 
 }  
 
-.height2 { 
-    
-    height: 120px; 
-    background-color: var(--primary); 
-    padding: 8px; 
-    color: white; 
-    padding-right: 24px; 
-   /* margin-right: 20px; */ 
-    width: 100px;
-} 
 
 
-.full { 
+.spread { 
     width: 100%; 
 }
 
-.width { 
-    width: 89%; 
-} 
 
-
-/* java functions */ 
-
-.hide { 
+.line { 
     visibility: hidden;
+    width: 89%; 
 }
